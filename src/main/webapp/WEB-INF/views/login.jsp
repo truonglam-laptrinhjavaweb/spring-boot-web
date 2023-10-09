@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
     <title>Trang chủ</title>
@@ -50,18 +50,18 @@
                                     </c:if>
 
                                     <div class="space-6"></div>
-                                    <form action="j_spring_security_check" method="POST">
+                                    <form action="login" method="POST">
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" id="username" name="j_username" required />
+															<input type="text" class="form-control" id="username" name="username" required />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" id="password" name="j_password" required />
+															<input type="password" class="form-control" id="password" name="password" required />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
                                             </label>
