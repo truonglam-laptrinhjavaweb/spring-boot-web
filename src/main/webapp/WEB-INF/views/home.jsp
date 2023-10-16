@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="<c:url value='/template/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <%-- Ckeditor --%>
+    <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>
 </head>
 <body class="no-skin">
 
@@ -125,7 +128,13 @@
             <div class="page-content">
                 <div class="row" >
                     <div class="col-xs-12">
-
+                            <div class="form-group">
+                                <label for="content" class="col-sm-3 control-label no-padding-right">Nội dung:</label>
+                                <div class="col-sm-9">
+                                    <textarea rows="5" cols="10" cssClass="form-control" id="content"></textarea>
+                                    <%--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>--%>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -149,7 +158,6 @@
     </a>
 
 </div>
-
 <script src="<c:url value='/template/js/global_javascript.js' />"></script>
 <script src="<c:url value='/template/assets/js/ace-extra.min.js' />"></script>
 <script src="<c:url value='/template/assets/js/jquery-ui.custom.min.js' />"></script>
@@ -162,5 +170,22 @@
 <script src="<c:url value='/template/assets/js/bootstrap.min.js' />"></script>
 <script src="<c:url value='/template/assets/js/ace-elements.min.js' />"></script>
 <script src="<c:url value='/template/assets/js/ace.min.js' />"></script>
+<script>
+    var editor = '';
+    $(document).ready(function () {
+        /*const configCKEditor = {
+            allowedContent: true,
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+        }*/
+        //editor = CKEDITOR.replace('content', configCKEditor);
+        //CKFinder.setupCKEditor(editor);
+        CKEDITOR.replace('content');
+    });
+</script>
 </body>
 </html>

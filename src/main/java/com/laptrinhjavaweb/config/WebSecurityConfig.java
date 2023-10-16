@@ -62,6 +62,8 @@ public class WebSecurityConfig {
                         .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
                         .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
                         .requestMatchers(mvc.pattern("/template/**")).permitAll()
+                        .requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
+                        .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll())
                 .formLogin(form -> form.loginPage("/login").permitAll().loginProcessingUrl("/login")
                         .successHandler(myAuthenticationSuccessHandler()).failureUrl("/login?incorrectAccount"))
