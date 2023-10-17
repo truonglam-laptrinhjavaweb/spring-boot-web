@@ -57,14 +57,13 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(mvc.pattern("/login**")).permitAll()
                         .requestMatchers(mvc.pattern("/user")).hasRole("ADMIN")
                         .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
                         .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
-                        .requestMatchers(mvc.pattern("/template/**")).permitAll()
-                        .requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
-                        .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll())
+                        /*.requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
+                        .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()*/
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+                        .anyRequest().permitAll())
                 .formLogin(form -> form.loginPage("/login").permitAll().loginProcessingUrl("/login")
                         .successHandler(myAuthenticationSuccessHandler()).failureUrl("/login?incorrectAccount"))
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll())

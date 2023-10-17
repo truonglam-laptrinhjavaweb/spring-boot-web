@@ -85,21 +85,21 @@
             <artifactId>spring-security-taglibs</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.cksource</groupId>
             <artifactId>ckfinder3</artifactId>
             <version>4.0.0</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>cksource-mvn-repo</id>
             <name>CKSource Maven Repository</name>
             <url>https://maven.cksource.com/</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <build>
         <plugins>

@@ -128,13 +128,12 @@
             <div class="page-content">
                 <div class="row" >
                     <div class="col-xs-12">
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label for="content" class="col-sm-3 control-label no-padding-right">Nội dung:</label>
                                 <div class="col-sm-9">
                                     <textarea rows="5" cols="10" cssClass="form-control" id="content"></textarea>
-                                    <%--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>--%>
                                 </div>
-                            </div>
+                            </div>--%>
                     </div>
                 </div>
             </div>

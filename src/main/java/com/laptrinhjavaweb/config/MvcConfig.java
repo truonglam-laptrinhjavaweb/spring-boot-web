@@ -22,6 +22,6 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/template/**").addResourceLocations("/template/");
-        registry.addResourceHandler("/ckeditor/**").addResourceLocations("/ckeditor/");
+//        registry.addResourceHandler("/ckeditor/**").addResourceLocations("/ckeditor/");
     }
 }
