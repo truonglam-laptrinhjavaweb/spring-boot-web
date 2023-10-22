@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <%-- Ckeditor --%>
-    <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>
+    <%--<script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>--%>
 </head>
 <body class="no-skin">
 
