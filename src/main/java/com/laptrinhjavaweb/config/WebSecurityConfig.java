@@ -48,6 +48,9 @@ public class WebSecurityConfig {
         return authConfig.getAuthenticationManager();
     }
 
+    /*
+    Link reference: https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html#match-by-mvc
+    */
     @Bean
     MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
         return new MvcRequestMatcher.Builder(introspector);
@@ -60,6 +63,7 @@ public class WebSecurityConfig {
                         .requestMatchers(mvc.pattern("/user")).hasRole("ADMIN")
                         .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
                         .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
+                        //.requestMatchers(mvc.pattern("/template/**")).permitAll()
                         /*.requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
                         .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()*/
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
