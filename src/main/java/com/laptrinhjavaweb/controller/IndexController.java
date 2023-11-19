@@ -1,4 +1,4 @@
-package com.laptrinhjavaweb;
+package com.laptrinhjavaweb.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
