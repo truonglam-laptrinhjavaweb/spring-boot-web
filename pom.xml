@@ -91,6 +91,20 @@
             <version>4.0.0</version>
         </dependency>
 
+        <!-- template sitemesh decorator easier than tiles library -->
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>3.2.0-M2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>

@@ -62,7 +62,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(mvc.pattern("/user")).hasRole("ADMIN")
                         .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
-                        .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
+                        .requestMatchers(mvc.pattern("/admin")).hasAnyRole("ADMIN","USER")
                         //.requestMatchers(mvc.pattern("/template/**")).permitAll()
                         /*.requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
                         .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()*/

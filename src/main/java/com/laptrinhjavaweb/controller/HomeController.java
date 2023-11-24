@@ -19,7 +19,7 @@ public class HomeController {
 		return new ModelAndView("redirect:/login");
 	}
 
-	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("home");
 		return mav;
@@ -31,13 +31,13 @@ public class HomeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/article", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/article", method = RequestMethod.GET)
 	public ModelAndView articlePage() {
 		ModelAndView mav = new ModelAndView("article");
 		return mav;
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/user", method = RequestMethod.GET)
 	public ModelAndView userPage() {
 		ModelAndView mav = new ModelAndView("user");
 		return mav;

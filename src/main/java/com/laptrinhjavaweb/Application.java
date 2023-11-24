@@ -1,10 +1,12 @@
 package com.laptrinhjavaweb;
 
+import com.laptrinhjavaweb.config.MySiteMeshFilter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.cksource.ckfinder.servlet.CKFinderServlet;
@@ -63,4 +65,10 @@ public class Application implements ServletContextInitializer, WebMvcConfigurer 
         registry.addResourceHandler("/userfiles/**")
                 .addResourceLocations(publicFilesDir);
     }
+
+    @Bean
+    public Filter sitemeshFilter() {
+        return new MySiteMeshFilter();
+    }
+
 }
