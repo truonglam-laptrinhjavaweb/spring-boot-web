@@ -2,28 +2,20 @@ package com.laptrinhjavaweb.config;
 
 import com.laptrinhjavaweb.security.CustomSuccessHandler;
 import com.laptrinhjavaweb.service.impl.CustomUserDetailService;
-import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -36,45 +28,32 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider() {
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-        return authConfig.getAuthenticationManager();
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider());
     }
 
-    /*
-    Link reference: https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html#match-by-mvc
-    */
-    @Bean
-    MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
-        return new MvcRequestMatcher.Builder(introspector);
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(mvc.pattern("/user")).hasRole("ADMIN")
-                        .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
-                        .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
-                        //.requestMatchers(mvc.pattern("/template/**")).permitAll()
-                        /*.requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
-                        .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()*/
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .anyRequest().permitAll())
-                .formLogin(form -> form.loginPage("/login").permitAll().loginProcessingUrl("/login")
-                        .successHandler(myAuthenticationSuccessHandler()).failureUrl("/login?incorrectAccount"))
-                .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll())
-                .exceptionHandling(exception -> exception.accessDeniedPage("/login?accessDenied"))
-                .sessionManagement(session -> session.maximumSessions(4).expiredUrl("/login?sessionTimeout"));
-        http.authenticationProvider(authenticationProvider());
-        return http.build();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+                http.csrf().disable()
+                .authorizeRequests()
+                        .antMatchers("/quan-tri/**").hasRole("ADMIN")
+                        .anyRequest().permitAll()
+                .and()
+                .formLogin().loginPage("/dang-nhap").usernameParameter("j_username").passwordParameter("j_password").permitAll()
+                .loginProcessingUrl("/j_spring_security_check")
+                .successHandler(myAuthenticationSuccessHandler())
+                .failureUrl("/dang-nhap?incorrectAccount").and()
+                .logout().logoutUrl("/thoat").deleteCookies("JSESSIONID")
+                .and().exceptionHandling().accessDeniedPage("/access-denied").and()
+                .sessionManagement().maximumSessions(1).expiredUrl("/dang-nhap?sessionTimeout");
     }
 
     @Bean

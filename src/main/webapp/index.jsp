@@ -1,2 +1,2 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<c:redirect url="/login"/>
+<%@ include file="/common/taglib.jsp" %>
+<c:redirect url="/trang-chu"/>

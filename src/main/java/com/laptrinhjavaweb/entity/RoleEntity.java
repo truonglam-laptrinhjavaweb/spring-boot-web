@@ -1,55 +1,47 @@
 package com.laptrinhjavaweb.entity;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = "role")
-public class RoleEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String name;
-
-    @Column(unique = true, nullable = false)
-    private String code;
-
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+public class RoleEntity extends BaseEntity {
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "code")
+	private String code;
+	
+	@ManyToMany(mappedBy = "roles")
     private List<UserEntity> users = new ArrayList<>();
+	
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+	public List<UserEntity> getUsers() {
+		return users;
+	}
 
-    public List<UserEntity> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<UserEntity> users) {
-        this.users = users;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setUsers(List<UserEntity> users) {
+		this.users = users;
+	}
 }
