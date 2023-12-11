@@ -60,10 +60,9 @@ public class Application implements ServletContextInitializer, WebMvcConfigurer 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // Configure the resource handler to serve files uploaded with CKFinder.
-        String publicFilesDir = String.format("file:%s/userfiles/", System.getProperty("user.dir"));
-
-        registry.addResourceHandler("/userfiles/**")
-                .addResourceLocations(publicFilesDir);
+        //String publicFilesDir = String.format("file:%s/userfiles/", System.getProperty("user.dir"));
+        String publicFilesDir = String.format("file:%s/userfiles/", "/home/laptrinhja");
+        registry.addResourceHandler("/userfiles/**").addResourceLocations(publicFilesDir);
     }
 
     @Bean

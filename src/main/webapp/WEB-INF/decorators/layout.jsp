@@ -78,11 +78,6 @@
     <sitemesh:write property="page.heading"/>
 </head>
 <body class="no-skin">
-
-    <!-- Header -->
-    <%@ include file="./header.jsp" %>
-    <!-- End Header -->
-
     <div class="main-container ace-save-state" id="main-container">
 
         <script type="text/javascript">

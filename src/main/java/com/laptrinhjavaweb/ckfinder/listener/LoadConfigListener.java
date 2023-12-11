@@ -25,7 +25,8 @@ public class LoadConfigListener implements Listener<LoadConfigEvent> {
 
     @Override
     public void onApplicationEvent(LoadConfigEvent loadConfigEvent) {
-        String userDir = System.getProperty("user.dir");
+        //String userDir = System.getProperty("user.dir");
+        String userDir = "/home/laptrinhja";
 
         Config config = loadConfigEvent.getConfig();
         Map<String, Config.Backend> backendConfigs = config.getBackends();
