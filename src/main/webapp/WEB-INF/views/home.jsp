@@ -8,7 +8,6 @@
     <content tag="heading">
         <%-- Ckeditor --%>
         <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>
-        <script type="text/javascript" src="<c:url value="/ckfinder/static/ckfinder.js"/>"></script>
     </content>
 </head>
 <body class="no-skin">
