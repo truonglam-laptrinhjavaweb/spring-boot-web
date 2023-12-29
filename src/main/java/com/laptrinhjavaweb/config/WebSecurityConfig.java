@@ -49,20 +49,12 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
-        return new MvcRequestMatcher.Builder(introspector);
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(mvc.pattern("/user")).hasRole("ADMIN")
-                        .requestMatchers(mvc.pattern("/article")).hasAnyRole("ADMIN","USER")
-                        .requestMatchers(mvc.pattern("/trang-chu")).hasAnyRole("ADMIN","USER")
-                        //.requestMatchers(mvc.pattern("/template/**")).permitAll()
-                        /*.requestMatchers(mvc.pattern("/ckeditor/**")).permitAll()
-                        .requestMatchers(mvc.pattern("/ckfinder/**")).permitAll()*/
+                        .requestMatchers("/user").hasRole("ADMIN")
+                        .requestMatchers("/article").hasAnyRole("ADMIN","USER")
+                        .requestMatchers("/trang-chu").hasAnyRole("ADMIN","USER")
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                         .anyRequest().permitAll())
                 .formLogin(form -> form.loginPage("/login").permitAll().loginProcessingUrl("/login")
