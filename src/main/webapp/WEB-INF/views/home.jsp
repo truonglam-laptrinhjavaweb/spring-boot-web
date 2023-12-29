@@ -128,7 +128,7 @@
             <div class="page-content">
                 <div class="row" >
                     <div class="col-xs-12">
-
+                        <h1>Hello laptrinhjavaweb fans. Đây là trang chủ nhé</h1>
                     </div>
                 </div>
             </div>
