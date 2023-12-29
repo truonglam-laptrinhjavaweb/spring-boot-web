@@ -48,9 +48,6 @@ public class WebSecurityConfig {
         return authConfig.getAuthenticationManager();
     }
 
-    /*
-    Link reference: https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html#match-by-mvc
-    */
     @Bean
     MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
         return new MvcRequestMatcher.Builder(introspector);
