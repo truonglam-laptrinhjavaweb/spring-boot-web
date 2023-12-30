@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Trang chủ</title>
+    <title>Trang đăng nhập</title>
     <!-- jquery -->
-    <script type='text/javascript' src='<c:url value="/template/js/2.1.4/jquery.min.js" />'></script>
+    <script type='text/javascript' src='<c:url value="/template/admin/js/2.1.4/jquery.min.js" />'></script>
 
-    <link rel="stylesheet" href="<c:url value='/template/assets/css/bootstrap.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/font-awesome/4.5.0/css/font-awesome.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
@@ -30,7 +30,7 @@
                                 <div class="widget-main">
                                     <h4 class="header blue lighter bigger">
                                         <i class="ace-icon fa fa-coffee green"></i>
-                                        7 ngày học java master V1 miễn phí
+                                        Livestream học spring boot web 30,31/12/2023
                                     </h4>
 
                                     <c:if test="${param.incorrectAccount != null}">
@@ -90,17 +90,17 @@
     </div><!-- /.main-content -->
 </div><!-- /.main-container -->
 
-<script src="<c:url value='/template/js/global_javascript.js' />"></script>
-<script src="<c:url value='/template/assets/js/ace-extra.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery-ui.custom.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.ui.touch-punch.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.easypiechart.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.sparkline.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.flot.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.flot.pie.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/jquery.flot.resize.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/bootstrap.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/ace-elements.min.js' />"></script>
-<script src="<c:url value='/template/assets/js/ace.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/global_javascript.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/ace-extra.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.easypiechart.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.sparkline.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.flot.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.flot.pie.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/jquery.flot.resize.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/ace-elements.min.js' />"></script>
+<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
 </body>
 </html>
