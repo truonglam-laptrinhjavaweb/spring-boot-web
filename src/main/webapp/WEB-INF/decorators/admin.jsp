@@ -23,6 +23,8 @@
     <script type='text/javascript' src='<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.js"/>'></script>
     <link rel="stylesheet" href="<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.css"/>">
 
+    <link href="<c:url value="/template/admin/css/pagination.css"/>" rel="stylesheet" type="text/css" />
+    <script src="<c:url value='/template/admin/js/paging/jquery.twbsPagination.js' />"></script>
     <sitemesh:write property="head"/>
 </head>
 <body class="no-skin">

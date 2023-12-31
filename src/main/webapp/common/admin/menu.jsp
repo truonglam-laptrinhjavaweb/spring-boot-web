@@ -47,16 +47,9 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href="<c:url value="/admin/popup/list"/>">
+                    <a href="<c:url value="/admin/email/list"/>">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Popup list
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-                <li>
-                    <a href="<c:url value="/admin/form/list"/>">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Form list
+                        DS email campaign
                     </a>
                     <b class="arrow"></b>
                 </li>
