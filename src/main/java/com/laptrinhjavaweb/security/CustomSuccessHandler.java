@@ -30,7 +30,28 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
 
     public String determineTargetUrl(Authentication authentication) {
-        return "/trang-chu";
+        String url = "";
+        List<String> roles = SecurityUtils.getAuthorities();
+        if (isUser(roles)) {
+            url = "/trang-chu";
+        } else if (isAdmin(roles)) {
+            url = "/admin/home";
+        }
+        return url;
+    }
+
+    private boolean isAdmin(List<String> roles) {
+        if (roles.contains("ROLE_ADMIN")) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isUser(List<String> roles) {
+        if (roles.contains("ROLE_USER")) {
+            return true;
+        }
+        return false;
     }
 
     public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
