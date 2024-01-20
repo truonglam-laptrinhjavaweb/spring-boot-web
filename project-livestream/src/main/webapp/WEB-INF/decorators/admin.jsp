@@ -25,6 +25,8 @@
 
     <link href="<c:url value="/template/admin/css/pagination.css"/>" rel="stylesheet" type="text/css" />
     <script src="<c:url value='/template/admin/js/paging/jquery.twbsPagination.js' />"></script>
+    <script src="<c:url value="/ckeditor/ckeditor.js"/>" type="text/javascript"></script>
+
     <sitemesh:write property="head"/>
 </head>
 <body class="no-skin">

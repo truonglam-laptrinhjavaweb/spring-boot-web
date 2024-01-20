@@ -28,7 +28,22 @@
                     <!-- PAGE CONTENT BEGINS -->
                     <div class="row">
                         <div class="col-xs-12">
-                            <h1>Hello cập nhật chiến dịch email page</h1>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">Tên chiến dịch</label>
+                                <div class="col-sm-9">
+                                    <%--<form:input path="title" id="title" cssClass="form-control"/>--%>
+                                    <input class="form-control" id="campaign" name="campaign" value=""/>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">Nội dung của chiền dịch</label>
+                                <div class="col-sm-9">
+                                    <%--<form:input path="title" id="title" cssClass="form-control"/>--%>
+                                    <textarea class="form-control" id="content" name="content"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -36,5 +51,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('content');
+    });
+</script>
 </body>
 </html>

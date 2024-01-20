@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -31,8 +32,11 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/admin/email/edit", method = RequestMethod.GET)
-    public ModelAndView emailEditPage() {
+    public ModelAndView emailEditPage(@RequestParam(value = "id", required = false) Long id) {
         ModelAndView mav = new ModelAndView("admin/email/edit");
+        if (id != null) {
+            //
+        }
         return mav;
     }
 }
