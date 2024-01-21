@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = "com.laptrinhjavaweb")
-public class ModelMapperConfig {
+public class ApplicationConfig {
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();

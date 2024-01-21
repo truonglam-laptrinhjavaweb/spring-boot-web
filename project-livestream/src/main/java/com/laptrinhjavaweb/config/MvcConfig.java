@@ -23,5 +23,7 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/template/**").addResourceLocations("/template/");
         registry.addResourceHandler("/ckeditor/**").addResourceLocations("/ckeditor/");
+        String publicFilesDir = String.format("file:%s/userfiles/", "/home/livestream");
+        registry.addResourceHandler("/userfiles/**").addResourceLocations(publicFilesDir);
     }
 }

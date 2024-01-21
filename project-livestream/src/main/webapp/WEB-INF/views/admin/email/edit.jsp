@@ -53,7 +53,16 @@
 </div>
 <script>
     $(document).ready(function () {
-        CKEDITOR.replace('content');
+        const configCKEditor = {
+            allowedContent: true,
+            filebrowserBrowseUrl: '/ckfinder/static/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/static/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/static/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+        }
+        CKEDITOR.replace('content', configCKEditor);
     });
 </script>
 </body>

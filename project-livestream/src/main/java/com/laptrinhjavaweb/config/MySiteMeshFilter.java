@@ -12,5 +12,6 @@ public class MySiteMeshFilter extends ConfigurableSiteMeshFilter {
 
         /*exclude path*/
         builder.addExcludedPath("/login*");
+        builder.addExcludedPath("/ckfinder*");
     }
 }
