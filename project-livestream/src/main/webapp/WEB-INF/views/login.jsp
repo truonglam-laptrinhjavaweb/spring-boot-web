@@ -30,7 +30,7 @@
                                 <div class="widget-main">
                                     <h4 class="header blue lighter bigger">
                                         <i class="ace-icon fa fa-coffee green"></i>
-                                        Livestream học spring boot web 20,21/1/2024
+                                        laptrinhjavaweb.com - Làm chủ lập trình Java dễ dàng
                                     </h4>
 
                                     <c:if test="${param.incorrectAccount != null}">
